@@ -1,0 +1,113 @@
+<div class="fondo2">
+  <div class="container">
+    <div class="row titulo">
+      <h1>Dashboard</h1>
+    </div>
+    <div class="row padBot">
+      <div class="col-md-8">
+        <div class="tablas">
+          <h2 class="titulo-tablas">Datos de los usuarios registrados</h2>
+          <div class="control-section">
+            <ejs-grid class="sortingenabled" [dataSource]='data' allowPaging='true' allowSorting='true'
+              [enableHover]="false" [allowSelection]="true" [selectionSettings]="selectOptions"
+              [editSettings]='editSettings' [toolbar]='toolbar' allow-resize-to-fit="true" databound="databound">
+              <e-columns>
+                <e-column field="idUser" headerText="ID" width="5"></e-column>
+                <e-column field="active" headerText="Activo" width="10" textAlign="Center">
+                  <ng-template #template let-data>
+                    <div class="imageActive">
+                      <img class="imgAct" *ngIf="data['active']==0" src="../../../assets/images/red_circle_96px.png" />
+                      <img class="imgAct" *ngIf="data['active']==1"
+                        src="../../../assets/images/green_circle_96px.png" />
+                    </div>
+                  </ng-template>
+                </e-column>
+                <e-column field="name" headerText="Nombre" width="15" textAlign="Left"></e-column>
+                <e-column headerText="email" width="22" textAlign="Left">
+                  <ng-template #template let-data>
+                    <div class="url">
+                      <a href="mailto:{{data.email}}">{{data.email}}</a>
+                    </div>
+                  </ng-template>
+                </e-column>
+                <e-column field="dateSignIn" headerText="Fecha de registro" width="20" textAlign="Center"></e-column>
+              </e-columns>
+            </ejs-grid>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="tablas">
+          <h2 class="titulo-tablas">Tiempo de navegación de cada usuario</h2>
+          <div class="control-section">
+            <ejs-grid class="sortingenabled" [dataSource]="data2" allowPaging="true" allowSorting="true"
+              [enableHover]="false" [allowSelection]="true" [toolbar]="toolbar">
+              <e-columns>
+                <e-column field="name" headerText="Nombre usuario" width="30"></e-column>
+                <e-column field="activos" headerText="Tiempo total logeado" width="30" textAlign="Center"></e-column>
+              </e-columns>
+            </ejs-grid>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tablas padBot">
+          <h2 class="titulo-tablas">Top municipios más búscados</h2>
+          <hr>
+          <div class="col-md-8 offset-md-2">
+            <div class="row">
+              <div class="col-4 center">
+                <img class="segundo-puesto" src="../../assets/images/second.png" alt="" />
+                <h2>{{segundo_puesto}}</h2>
+              </div>
+              <div class="col-4 center">
+                <img class="primer-puesto" src="../../assets/images/first.png" alt="" />
+                <h1>{{primer_puesto}}</h1>
+              </div>
+              <div class="col-4 center">
+                <img class="tercer-puesto" src="../../assets/images/third.png" alt="" />
+                <h3>{{tercer_puesto}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="tablas padBot">
+          <h2 class="titulo-tablas">Usuarios registrados por mes</h2>
+          <hr>
+          <app-barchart></app-barchart>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="tablas padBot">
+          <h2 class="titulo-tablas">Porcentaje de municipios scrapeados</h2>
+          <hr>
+          <app-piechart></app-piechart>
+        </div>
+      </div>
+    </div>
+
+    <div class="row divAct">
+      <div class="col-md-12">
+        <div class="tablas padBot">
+          <h2 class="titulo-tablas">Actualizar datos persistentes en un proceso nocturno</h2>
+          <hr>
+          <div class="col-md-6 offset-md-3">
+            <p>Se actualizarán los datos de los municipios, todos los centros médicos y estaciones en un proceso de
+              larga
+              duración.</p>
+            <div class="botAct">
+              <!-- <button class="boton1" (click)="printTest()">Actualizar</button> -->
+              <button class="boton1" (click)="actData()">Actualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

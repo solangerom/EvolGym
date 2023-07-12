@@ -1,0 +1,96 @@
+$azulOs: rgb(19, 35, 83);
+.fondo {
+  background-color: rgb(238, 238, 238);
+  padding: 2% 0;
+}
+.encabezado {
+  height: 12rem;
+  background-image: url("/../../assets/images/lake.jpeg");
+}
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1.5rem;
+}
+h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 0;
+}
+.control-section {
+  margin: 0 15%;
+}
+.control-section {
+  box-shadow: 2px 2px 5px 5px rgb(202, 202, 202);
+  background-color: white;
+  border-color: rgb(150, 150, 150);
+  border-radius: 0.5rem;
+  background-color: rgb(238, 238, 238);
+}
+.grid {
+  // background-color: rgb(238, 238, 238);
+
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 3%;
+  padding: 0 15%;
+
+  .grid-item {
+    box-shadow: 2px 2px 5px 5px rgb(202, 202, 202);
+    background-color: white;
+    border-color: rgb(150, 150, 150);
+    border-radius: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    padding: 5% 20%;
+    border-style: solid;
+    border-color: #efeff5;
+    // height: 600px;
+
+    div {
+      font-weight: bold;
+    }
+
+    .flex-item {
+      margin: 0.5rem 0rem;
+    }
+
+    .titulo {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      color: #fff;
+      background-color: $azulOs;
+      border-color: $azulOs;
+      border-radius: 5px;
+      font-weight: 400;
+      width: auto;
+    }
+
+    button:hover {
+      color: #fff;
+      background-color: #3c5a8f;
+    }
+  }
+}
+
+
+.error{
+  color: red;
+  // border: 1px dashed red;
+}
+
+.ok{
+  color: green;
+}
+
+@media all and (max-width: 1000px) {
+  .grid {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+}

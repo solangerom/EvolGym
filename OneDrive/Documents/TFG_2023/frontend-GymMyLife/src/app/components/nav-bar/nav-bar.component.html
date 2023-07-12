@@ -1,0 +1,61 @@
+<div class="nav-bar fixed-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark nav-dark">
+            <!-- <div class="container-fluid"> -->
+            <a routerLink="">
+                <img class="logo" src="../../assets/images/fitnesslogo.png" alt="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="analisis" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Sentiment analysis</a>
+            </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Buscador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="sobreNosotros" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="entrenamiento" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Entrenamiento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="alimentacion" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Alimentacion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Admin</a>
+                    </li>
+
+                </ul>
+                <form *ngIf="!isLogged()" class="d-flex">
+                    <div class="nav-item navbar-nav me-auto mb-2 mb-lg-0">
+                        <a (click)="showCarrito()" routerLink="" routerLinkActive="active2" [routerLinkActiveOptions]="{ exact: true }"><img class="cart" src="../../../assets/images/cart.png" /></a>
+                        <a (click)="showCarrito()" class="cartText">Carrito</a>
+                    </div>
+                    <div class="nav-item navbar-nav me-auto mb-2 mb-lg-0">
+                        <a class="nav-link" (click)="showLogin()" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Login</a>
+                    </div>
+                </form>
+
+                <div *ngIf="isLogged()" class="dropdown d-flex">
+                    <button routerLinkActive="active" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Welcome {{ this.showName() }}</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <a class="dropdown-item" href="#" routerLink="profile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Perfil</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="endSession()" href="#">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- </div> -->
+            </div>
+        </nav>
+    </div>
+</div>
+<app-login></app-login>
+<app-carrito></app-carrito>

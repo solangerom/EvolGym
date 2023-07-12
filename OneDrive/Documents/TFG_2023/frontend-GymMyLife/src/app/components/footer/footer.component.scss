@@ -1,0 +1,46 @@
+$azulFoot: #ac8a05;
+section {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    img {
+        height: 2rem;
+        width: 2rem;
+        margin: 0.7rem;
+        transition: transform .2s;
+    }
+    img:hover {
+        transform: scale(1.5);
+    }
+}
+
+footer {
+    background-color: $azulFoot;
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-align: center;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    input {
+        margin-bottom: 1rem;
+    }
+}
+
+.btnSus {
+    cursor: pointer;
+     :hover {
+        color: $azulFoot;
+        background-color: white;
+        border-color: white;
+    }
+}
+
+.autores {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.copyright {
+    padding: 1rem;
+}

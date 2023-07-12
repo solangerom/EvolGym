@@ -1,0 +1,20 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title">Log in to your SoftLusion</h3>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <p>Email</p>
+      <input type="text" class="form-control" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="user" (keydown.enter)="sendLogin()" />
+      <p>Contraseña</p>
+      <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="password" (keydown.enter)="sendLogin()" />
+      <p *ngIf="getErrorLogin()" class="error">Email o contraseña incorrecta</p>
+      <p *ngIf="getNoName()" class="error">Rellene todos los campos</p>
+      <button class="boton" (click)="sendLogin()" type="submit">Login</button>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="boton1" (click)="showRegister()">Register</button>
+  </div>
+</ng-template>
+<app-register></app-register>

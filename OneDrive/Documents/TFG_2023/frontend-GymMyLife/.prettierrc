@@ -1,0 +1,14 @@
+{  
+"overrides":[ 
+    {
+      "files": "*.html",
+      "options": {
+            "printWidth": 2000
+      }
+    },
+    {
+      "files": ".prettierrc",
+      "options": { "parser": "json" }
+    }
+    ]
+}

@@ -1,0 +1,92 @@
+@import "../../../styles.scss";
+.nav-bar {
+    width: 100%;
+    height: 7rem;
+    // border-bottom-left-radius:20% 70%;
+    // border-bottom-right-radius:80% 10%;
+    // background: rgb(19, 24, 41);
+    background: #ac8a05; //fondo navbar
+    box-shadow: 0px 4px 10px 0px #6d5c069a;
+}
+
+.navbar-collapse {
+    background-color: #ac8a05; //fondo navbar
+    border-radius: 10px;
+}
+
+.active[_ngcontent-vdr-c163] {
+    // padding-left: 10px;
+    width: 20%;
+}
+
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .show>.nav-link {
+    color: #fff;
+    padding-left: 20px;
+}
+
+.logo {
+    width: 5rem;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+.nav-item:hover {
+    color: #fff;
+    background-color: #6d5c069a; //focus
+    border-radius: 7px;
+    height: 80%;
+    cursor: pointer;
+}
+
+.nav-item:focus {
+    color: #fff;
+    background-color: #686c0db6; //focus-marcador
+}
+
+.active {
+    background-color: #d41313b6 !important; //color del boton
+    border-radius: 5px;
+    ;
+}
+
+.nav-dark {
+    background-color: rrgb(19, 24, 41) !important;
+    border-radius: 10px;
+}
+
+.container-fluid {
+    margin: auto;
+    padding: 0%;
+}
+
+.btn {
+    background-color: rgb(19, 24, 41) !important;
+    color: white;
+    border-color: rgb(19, 24, 41);
+}
+
+.container {
+    padding: 15px;
+}
+
+.fijo {
+    position: absolute;
+    right: 0;
+}
+
+.cart {
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.cartText {
+    display: none;
+}
+
+.active2 {
+    //background-color: #d41313b6 !important; //color del boton
+    border-radius: 5px;
+    ;
+}

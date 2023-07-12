@@ -1,0 +1,26 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title">Register to your SoftLusion</h3>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <p>Name</p>
+      <input type="text" class="form-control" placeholder="User name" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="name" />
+      <p>Email</p>
+      <input type="text" class="form-control" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="email" />
+      <p>Password</p>
+      <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="password" />
+      <p>Confirm password</p>
+      <input type="password" class="form-control" placeholder="Confirm password" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="password2" />
+      <p *ngIf="getEmailRepe()" class="error">Email ya registrado. Introduzca uno nuevo</p>
+
+      <p *ngIf="getBadPass()" class="error">La contraseña debe tener como mínimo 8 carácteres, una 
+        mayúscula, una minuscula, un número y un carácter especial</p>
+      <p *ngIf="getErrorDifferent()" class="error">La nueva contraseña no coincide</p>
+      <p *ngIf="getNotEmail()" class="error">El email no es válido</p>
+      <p *ngIf="getNoName()" class="error">Rellene todos los campos</p>
+
+      <button class="boton" (click)="sendRegister()" type="submit">Register and Login</button>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,303 @@
+<div [className]="getFondo() ? 'foto-fondo' : 'foto-fondo-blanco'">
+    <div class="container">
+        <br><br>
+        <br><br>
+        <div class="titulo">
+            <h1 class="fraseBusqueda">¿Cual es tu destino para entrenar?</h1>
+        </div>
+        <div class="row espacio-barra">
+            <div class="col-md-4 offset-md-4 tablas">
+                <form class="example-form">
+                    <mat-form-field class="barra">
+                        <!-- <img class="lupa" src="../../../assets/images/search_50px.png" alt="" /> -->
+                        <!-- <div class="primeraFilaCajitas"> -->
+                        <input type="text" placeholder="Introduce un municipio" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="texto" (keydown.enter)="getInfoPueblo()" />
+                        <!-- <img class="lupa" src="../../../assets/images/search_50px.png" alt="" /> -->
+                        <!-- <img src="../../../assets/images/search_50px.png" alt="" /> -->
+                        <!-- </div> -->
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async | slice:0:10" [value]="option"> {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-md-4 offset-md-4">
+                <p *ngIf="getNoMuni()" class="error">El pueblo que está intanteando buscar no existe</p>
+            </div>
+        </div>
+
+        <div *ngIf="this.municipio.name == null" class="fantasma"></div>
+        <!-- Loading spinner -->
+
+        <div *ngIf="loading" class="loading-container flex-content-center">
+            <div class="row">
+                <div class="col-md-4 offset-md-4 gifloading">
+                    <mat-progress-spinner class="gifloading" color="accent" mode="indeterminate"> </mat-progress-spinner>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div *ngIf="this.nombre != null" class="ampliado">
+            <div class="rowAmp nombre">
+                <p>Nombre: </p>
+                <p>Valor: </p>
+            </div>
+            <div class="rowAmp">
+                <p>{{this.nombre}}</p>
+                <p>{{this.valor}}</p>
+            </div>
+            <br><br>
+            <button (click)="ocultar()">ocultar</button>
+
+        </div> -->
+
+        <!-- <div *ngIf="this.data !=null">
+            <div class="tabla">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Valor</th>
+                            <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of data;">
+                            <td>{{d.nombre}}</td>
+                            <td>{{d.valor}}</td>
+                            <td> <button (click)="rowSelected(d)">Ver</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+
+        <div *ngIf="this.municipio.name != null">
+            <div class="row" *ngIf="this.municipio.name != null">
+                <div class="row">
+                    <h1 class="nombre-municipio"> Descubre {{this.municipio.name}}</h1>
+                </div>
+                <div class="row">
+                    <div *ngIf="this.municipio.nRestaurants != 0" class="col">
+                        <div class="cajitas">
+                            <spam class="primeraFilaCajitas">
+                                <spam class="tituloCajitas">Restaurantes</spam>
+                                <img class="imagenCajitas" src="../../../assets/images/restaurant_100px_black.png" alt="" />
+                            </spam>
+                            <spam class="valorCajitas">{{this.municipio.nRestaurants}}</spam>
+                        </div>
+                    </div>
+                    <div *ngIf="this.municipio.nRestaurants != 0" class="col">
+                        <div class="cajitas">
+                            <spam class="primeraFilaCajitas">
+                                <spam class="tituloCajitas">Nota restaurantes</spam>
+                                <img class="imagenCajitas" src="../../../assets/images/star_100px_black.png" alt="" />
+                            </spam>
+                            <spam class="valorCajitas">{{this.municipio.media}}</spam>
+                        </div>
+                    </div>
+                    <div *ngIf="this.nEstaciones != 0" class="col">
+                        <div class="cajitas">
+                            <spam class="primeraFilaCajitas">
+                                <spam class="tituloCajitas">Estaciones</spam>
+                                <img class="imagenCajitas" src="../../../assets/images/train_100px_black.png" alt="" />
+                            </spam>
+                            <spam class="valorCajitas">{{this.nEstaciones}}</spam>
+                        </div>
+                    </div>
+                    <div *ngIf="this.nHospitales != 0" class="col">
+                        <div class="cajitas">
+                            <spam class="primeraFilaCajitas">
+                                <spam class="tituloCajitas">Hospitales</spam>
+                                <img class="imagenCajitas" src="../../../assets/images/hospital_sign_100px_black.png" alt="" />
+                            </spam>
+                            <spam class="valorCajitas">{{this.nHospitales}}</spam>
+                        </div>
+                    </div>
+                    <div *ngIf="this.nUrgencias != 0" class="col">
+                        <div class="cajitas">
+                            <spam class="primeraFilaCajitas">
+                                <spam class="tituloCajitas">Urgencias</spam>
+                                <img class="imagenCajitas" src="../../../assets/images/ambulance_100px_black.png" alt="" />
+                            </spam>
+                            <spam class="valorCajitas">{{this.nUrgencias}}</spam>
+                        </div>
+                    </div>
+                    <div *ngIf="this.nConsultorios != 0" class="col">
+                        <div class="cajitas">
+                            <spam class="primeraFilaCajitas">
+                                <spam class="tituloCajitas">Centro de salud</spam>
+                                <img class="imagenCajitas" src="../../../assets/images/hospital_100px_black.png" alt="" />
+                            </spam>
+                            <spam class="valorCajitas">{{this.nConsultorios}}</spam>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row primeraFilaCajitas1">
+                <div class="col">
+                    <img class="escudoMain" [src]="municipio.shield" />
+                    <div class="row">
+                        <div class="localizacion">
+                            <p class="localizacionTexto">España | {{this.municipio.ccaa}} | {{this.municipio.province}} | {{this.municipio.name}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="this.municipio.unpopulated != null" class="col">
+                    <div *ngIf="this.municipio.unpopulated == 'Municipio poblado'">
+                        <img class="imgDespoblacion" src="../../../assets/images/city.png" alt="" />
+                    </div>
+                    <div *ngIf="this.municipio.unpopulated == 'Municipio despoblado'">
+                        <img class="imgDespoblacion" src="../../../assets/images/village.png" alt="" />
+                    </div>
+                    <div class="row">
+                        <div *ngIf="this.municipio.unpopulated == 'Municipio poblado'" class="poblacion">
+                            {{this.municipio.unpopulated}}
+                        </div>
+                        <div *ngIf="this.municipio.unpopulated == 'Municipio despoblado'" class="despoblacion">
+                            {{this.municipio.unpopulated}}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="informacionMunicipio">
+                        <div class="row tituloInfo">
+                            <!-- <h3 class="tituloInfoTexto"><b>Información básica</b></h3> -->
+                            <h3 class="tituloInfoTexto">Información básica</h3>
+                            <hr>
+                        </div>
+                        <div class="row infoBasica">
+                            <br>
+                            <br>
+                            <div *ngIf="this.municipio.population != null">
+                                <p>Población: {{this.municipio.population}}</p>
+                            </div>
+                            <div *ngIf="this.municipio.surface != null">
+                                <p>Superficie: {{this.municipio.surface}}</p>
+                            </div>
+                            <div *ngIf="this.municipio.altitude != null">
+                                <p>Altitud: {{this.municipio.altitude}}</p>
+                            </div>
+                            <div *ngIf="this.municipio.density != null">
+                                <p>Densidad: {{this.municipio.density}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <hr> -->
+
+        </div>
+    </div>
+
+
+    <div *ngIf="this.municipio.name != null">
+        <div class="row" *ngIf="this.municipio.name != null">
+            <div class="row">
+                <h1 class="nombre-municipio"> Unete a nuestra comunidad</h1>
+            </div>
+            <div class="row">
+                <h2 class="whatsapp-municipio"> Nuestro grupo en {{this.municipio.name}} </h2>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- && this.user.name != null -->
+
+
+
+    <!-- <div class="cambio-seccion"></div> -->
+    <div class="fondo-seccion-carrusel">
+        <div class="container">
+
+            <div *ngIf="this.municipio.stations != null && this.municipio.stations.length != 0" class="row centros">
+                <h3 class="titulosCarrusel marginTop">Estaciones</h3>
+
+                <swiper [slidesPerView]="3" [spaceBetween]="30" [slidesPerGroup]="3" [loop]="false" [loopFillGroupWithBlank]="false" [pagination]="{ clickable: true }" [navigation]="true" class="stationSwiper">
+                    <ng-template *ngFor="let item of this.municipio.stations" swiperSlide>
+                        <div class="caja">
+                            <div class="tituloCaja stations">
+                                <img class="emoji" *ngIf="item['cercanias'] == 1" src="../../../assets/images/1024px-Cercanias_Logo.svg.png" alt="" />
+                                <img class="emoji" *ngIf="item['cercanias'] == 0" src="../../../assets/images/train_100px.png" alt="" />
+                                <!-- <img class="emoji" *ngIf="item['feve'] = 1" src="../../../assets/images/FEVE.svg.png" alt=""> -->
+                                <!-- <img class="emoji" *ngIf="item['feve'] = 0 && item['cercanias'] = 0" src="../../../assets/images/train_100px.png" alt=""> -->
+                                <h5>{{item['name']}}</h5>
+                            </div>
+                            <div class="tituloCaja marginStation">
+                                <img class="emojiDir" src="../../../assets/images/marker_100px.png" alt="" />
+                                <p class="dirText">{{item['address']}}</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+
+            <div *ngIf="this.municipio.medicalcenters != null && this.municipio.medicalcenters.length != 0" class="row centros">
+                <h3 class="titulosCarrusel">Centros médicos</h3>
+
+                <swiper [slidesPerView]="3" [spaceBetween]="30" [slidesPerGroup]="3" [loop]="false" [loopFillGroupWithBlank]="false" [pagination]="{ clickable: true }" [navigation]="true" class="sanidadSwiper">
+                    <ng-template *ngFor="let item of this.municipio.medicalcenters" swiperSlide>
+                        <div class="caja">
+                            <div class="tituloCaja cmedicos">
+                                <img class="emoji" *ngIf="item['type'] == 'CENTRO SALUD' || item['type'] == 'CONSULTORIO LOCAL' || item['type'] == 'Otros Centros con Internamiento'" src="../../../assets/images/hospital_100px.png" alt="" />
+                                <img class="emoji" *ngIf="item['type'] == 'Dispositivos de Urgencia Extrahospitalaria'" src="../../../assets/images/ambulance_100px.png" alt="" />
+                                <img class="emoji" *ngIf="item['type'] == 'Hospitales de media y larga estancia' || item['type'] == 'Hospitales de salud mental y tratamiento de toxicomanías' || item['type'] == 'Hospitales especializados' || item['type'] == 'Hospitales Generales'" src="../../../assets/images/hospital_sign_100px.png"
+                                    alt="" />
+                                <h5>{{item['name']}}</h5>
+                            </div>
+                            <div class="bodyCaja">
+                                <p class="disText">{{item['type']}}</p>
+                            </div>
+                            <div class="bodyCaja marginCaja">
+                                <img class="emojiDir" src="../../../assets/images/marker_100px.png" alt="" />
+                                <p class="dirText">{{item['address']}}</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+
+            <div *ngIf="this.municipio.supermarkets!= null && this.municipio.supermarkets.length != 0" class="row centros marginBot">
+                <h3 class="titulosCarrusel">Supermercados</h3>
+
+                <swiper [slidesPerView]="3" [spaceBetween]="30" [slidesPerGroup]="3" [loop]="false" [loopFillGroupWithBlank]="false" [pagination]="{ clickable: true }" [navigation]="true" class="supermarketsSwiper">
+                    <ng-template *ngFor="let item of this.municipio.supermarkets" swiperSlide>
+                        <div class="caja">
+                            <div class="tituloCaja supermarkets">
+                                <img class="emoji" src="../../../assets/images/fast_moving_consumer_goods_100px.png" alt="" />
+                                <h5>{{item['name']}}</h5>
+                            </div>
+                            <div class="bodyCaja">
+                                <img class="emojiDir" src="../../../assets/images/ruler_100px.png" alt="" />
+                                <p class="disText">{{item['distance']}} Km</p>
+                            </div>
+                            <div class="bodyCaja marginCaja">
+                                <img class="emojiDir" src="../../../assets/images/marker_100px.png" alt="" />
+                                <p class="dirText">{{item['address']}}</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="this.municipio.name != null" class="container">
+
+
+        <figure>
+            <blockquote class="blockquote">
+                <p>Si quieres ser feliz una hora, emborráchate. Si quieres ser feliz un día, mata un cerdo. Si quieres ser feliz una semana, haz un viaje. Si quieres ser feliz un año, cásate. Si quieres ser feliz toda tu vida, cultiva un huerto.
+                </p>
+            </blockquote>
+            <figcaption class="blockquote-footer"><cite title="Source Title">Proverbio chino</cite>
+            </figcaption>
+        </figure>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Handlee&family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Handlee&family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&display=swap');//Confortaa
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap'); //descubre
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap'); //buscador
+
+
+.titulo {
+    text-align: center;
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+.titulo-2 {
+    color:white;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.titulo-3 {
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+}
+
+.modal-content{
+    border-radius: 20px !important; 
+    margin-top:12rem !important;
+}
+
+.modal-header{
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,49 @@
+$azulOs: #ac8a05;
+$azul2: #ac8a05;
+.boton {
+    color: #fff;
+    background-color: $azulOs;
+    border-color: $azulOs;
+    border-radius: 5px;
+    font-weight: 400;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.modal-content {
+    border-radius: 100px !important;
+}
+
+.boton1 {
+    color: #fff;
+    background-color: $azulOs;
+    border-color: $azulOs;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+.register {
+    color: $azul2;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+.modal-title {
+    text-align: center;
+    margin: auto;
+    color: #fff;
+}
+
+.modal-header {
+    color: #fff;
+    background-color: $azulOs;
+    border-color: $azulOs;
+}
+
+.error {
+    color: red;
+}

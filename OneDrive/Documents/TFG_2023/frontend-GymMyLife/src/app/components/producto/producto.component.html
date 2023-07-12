@@ -1,0 +1,107 @@
+<div class="cabProd row container-fluid">
+    <div class="col-md-8 carousel-producto">
+        <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+            <ng-template ngbSlide *ngFor="let img of images; index as i">
+                <div class="picsum-img-wrapper">
+                    <img class="carouselImg" [src]="img" alt="Imagen de dron del carrusel">
+                    <!-- hacer pop-up de imagen a full screen con modal de bootstrap -->
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+    <div class="titulomarca col-md-4">
+        <h3 class="titulo">Mavic Air 2</h3>
+        <div class="row rowRating">
+            <h4 class="marca">DJI</h4>
+            <img class="rating" src="../../../assets/images/stars.PNG" alt="rating">
+        </div>
+        <h5 class="descripcion">Drone Quadcopter UAV con Cámara de 48MP 4K Video 1/2 Pulgadas CMOS Sensor de Cardán de 3 Ejes, Sin Tarjeta, Sin Care Refresh, Tiempo de Vuelo 34 min, ActiveTrack 3.0, Color Gris</h5>
+        <hr>
+        <div class="precioDiv">
+            <h4 class="tituloPrecio">Precio</h4>
+            <p>850€</p>
+        </div>
+        <button class="comprar" (click)="changeSuccessMessage()">Añadir al carrito</button>
+        <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">Producto añadido al carrito correctamente
+        </ngb-alert>
+    </div>
+</div>
+
+<div class="specs container">
+    <h3>Especificaciones</h3>
+    <ul>
+        <li>
+            DETALLES CLAROS: Captura fotos de 48 MP con un sensor CMOS de 1/2 pulgada mientras que el cardán de 3 ejes te permite crear un vídeo suave de 4K/60fps
+        </li>
+        <li>
+            CAPTURA CINEMATOGRÁFICA: Mavic Air 2 soporta Hyperlapse en 8K, lo que le permite distorsionar el tiempo y el espacio para obtener imágenes impresionantes
+        </li>
+        <li>
+            VUELA MÁS TIEMPO: Duración de la batería hasta 34 min, permite realizar disparos épicos; sistema de evitación de obstáculos utiliza sensores de avance, retroceso y descenso para optimizar la seguridad
+        </li>
+        <li>
+            VUELA MÁS LEJOS: OcuSync 2.0 tiene una distancia de transmisión de video de hasta 6 km, también puede entregar una transmisión en vivo con resolución FHD de 1080p directamente desde la cámara del dron
+        </li>
+        <li>
+            VUELA MÁS INTELIGENTE : Spotlight 2.0 mantiene la cámara fija en un sujeto. ActiveTrack 3.0 mantiene a los sujetos en el centro del cuadro. POI 3.0 sigue objetos como personas, coches y barcos
+        </li>
+    </ul>
+
+    <h3>Opiniones</h3>
+    <!-- Puesto arriba para aprovechar el container y tener el mismo margen -->
+</div>
+
+<div class="opiniones container-fluid">
+    <div class="row">
+        <div class="col-md-3 iniCard card borderCard">
+            <div class="card-body">
+                <h4 class="card-title">Gran Dron</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="ratingOp" src="../../../assets/images/stars.PNG" alt="rating">
+                    </div>
+
+                    <div class="nomDate col-md-6">
+                        <h5 class="opUser">Luis Jiménez</h5>
+                        <h6>27/02/2021</h6>
+                    </div>
+                </div>
+                <p class="textOp">Creo que es la mejor opción calidad precio para comprar un drone. Buen estabilizador, muy buena calidad de imagen. El tiempo de vuelo comparado con la versión anterior es bastante superior. Mucha seguridad a la hora de manejarlo. Por ponerle
+                    un inconveniente, las luces de indicador de batería del mando no se distinguen bien durante el día y el tamaño es algo mayor que la versión anterior </p>
+            </div>
+        </div>
+        <div class="col-md-3 card borderCard">
+            <div class="card-body">
+                <h4 class="card-title">Gran Dron</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="ratingOp" src="../../../assets/images/stars.PNG" alt="rating">
+                    </div>
+                    <div class="nomDate col-md-6">
+                        <h5 class="opUser">Luis Jiménez</h5>
+                        <h6>27/02/2021</h6>
+                    </div>
+                </div>
+                <p class="textOp">Creo que es la mejor opción calidad precio para comprar un drone. Buen estabilizador, muy buena calidad de imagen. El tiempo de vuelo comparado con la versión anterior es bastante superior. Mucha seguridad a la hora de manejarlo. Por ponerle
+                    un inconveniente, las luces de indicador de batería del mando no se distinguen bien durante el día y el tamaño es algo mayor que la versión anterior </p>
+            </div>
+        </div>
+        <div class="col-md-3 card borderCard">
+            <div class="card-body">
+                <h4 class="card-title">Gran Dron</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="ratingOp" src="../../../assets/images/stars.PNG" alt="rating">
+                    </div>
+                    <div class="nomDate col-md-6">
+                        <h5 class="opUser">Luis Jiménez</h5>
+                        <h6>27/02/2021</h6>
+                    </div>
+                </div>
+                <p class="textOp">Creo que es la mejor opción calidad precio para comprar un drone. Buen estabilizador, muy buena calidad de imagen. El tiempo de vuelo comparado con la versión anterior es bastante superior. Mucha seguridad a la hora de manejarlo. Por ponerle
+                    un inconveniente, las luces de indicador de batería del mando no se distinguen bien durante el día y el tamaño es algo mayor que la versión anterior </p>
+            </div>
+        </div>
+    </div>
+</div>

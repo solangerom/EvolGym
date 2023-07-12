@@ -1,0 +1,42 @@
+@import "../../../styles.scss";
+
+.modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.total {
+}
+.modal-footer {
+  justify-content: center;
+}
+p {
+  font-size: 16px;
+  font-weight: bold;
+}
+.trash {
+  display: flex;
+  p {
+    margin: 0;
+    // align-items: center;
+    // justify-content: center;
+    // text-align: center;
+    // align-content: center;
+    padding-top: 15px;
+  }
+}
+img {
+  width: 3rem;
+  height: 3rem;
+}
+.modal-title {
+  text-align: center;
+  margin: auto;
+  color: grey;
+}
+
+.modal-header {
+  color: #fff;
+  // background-color: $azulOs;
+  // border-color: $azulOs;
+}

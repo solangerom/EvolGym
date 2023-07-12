@@ -1,0 +1,45 @@
+<div class="fondo">
+    <div class="encabezado"></div>
+    <h2>Perfil</h2>
+    <div class="grid">
+        <div class="grid-item">
+            <h3>Datos del perfil</h3>
+            <hr />
+            <div class="flex-item">Nombre</div>
+            <input class="flex-item" value="{{ this.name }}" [(ngModel)]="this.name" />
+            <div class="flex-item">Email</div>
+            <input class="flex-item" value="{{ this.email }}" [(ngModel)]="this.email" />
+            <p *ngIf="getNotEmail()" class="error">El email no es válido</p>
+            <p *ngIf="getChangeEmail()" class="ok">Datos cambiados con éxito</p>
+            <button class="flex-item" (click)="updateUser()">Guardar cambios</button>
+        </div>
+        <div class="grid-item">
+            <h3>Modificar contraseña</h3>
+            <hr />
+            <div class="flex-item">Antigua contraseña</div>
+            <input class="flex-item" value="{{ this.old_psw }}" [(ngModel)]="this.old_psw" type="password" />
+            <div class="flex-item">Nueva contraseña</div>
+            <input class="flex-item" value="{{ this.new_psw }}" [(ngModel)]="this.new_psw" type="password" />
+            <div class="flex-item">Confirme nueva contraseña</div>
+            <input class="flex-item" value="{{ this.repeat_psw }}" [(ngModel)]="this.repeat_psw" type="password" />
+            <p *ngIf="getErrorChange()" class="error">Contraseña incorrecta</p>
+            <p *ngIf="getBadPass()" class="error">La contraseña debe tener como mínimo 8 carácteres, una mayúscula, una minuscula, un número y un carácter especial</p>
+            <p *ngIf="getChangeOK()" class="ok">Contraseña cambiada con éxito</p>
+            <p *ngIf="getErrorDifferent()" class="error">La nueva contraseña no coincide</p>
+            <button class="flex-item" (click)="updatePsw()">Cambiar contraseña</button>
+        </div>
+    </div>
+    <h2>Últimas búsquedas</h2>
+    <div class="control-section">
+        <ejs-grid class="sortingenabled" [dataSource]="data" allowPaging="true" allowSorting="true" [enableHover]="false" [allowSelection]="true" [toolbar]="toolbar">
+            <e-columns>
+                <e-column field="name" headerText="Municipio" width="170"></e-column>
+                <e-column field="media" headerText="Media restaurantes" width="155" textAlign="Center"></e-column>
+                <e-column field="nRestaurants" headerText="Número de restaurantes" width="120" textAlign="Center"></e-column>
+                <e-column field="unpopulated" headerText="España vaciada" width="150" textAlign="Center"></e-column>
+                <e-column field="date" headerText="Fecha" format="yMd" width="150"></e-column>
+                <e-column field="expDate" headerText="Fecha de expiración" format="yMd" width="150"></e-column>
+            </e-columns>
+        </ejs-grid>
+    </div>
+</div>
