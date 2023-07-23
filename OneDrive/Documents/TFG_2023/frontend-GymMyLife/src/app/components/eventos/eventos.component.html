@@ -1,0 +1,37 @@
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <form [formGroup]="evento" (ngSubmit)="validarValores()">
+        <col>
+        <input type="text" placeholder="Input1" formControlName="input1">
+        <col>
+        <col>
+        <button expand="sol" type="submit">Validar</button>
+        <button onclick="mostrarTexto()" type="submit">click me!</button>
+    </form>
+
+    <div class="col-md-4 offset-md-4">
+        <p *ngIf="getDescripcion()" class="sol">tiene un mensaje que es {{this.evento.get('input1').value}}</p>
+    </div>
+
+
+    <!-- 
+    <div *ngFor="let dato of data">
+        <button (click)="informacion(dato)">Ver Informacion {{dato.idMsg}}</button>
+    </div>
+    <ng-container *ngIf="datoSeleccionado">
+        Nombre - {{datoSeleccionado.municipio}} Descripcion - {{ datoSeleccionado.descripcion}}
+    </ng-container> -->
+
+    <input value="Save" type="submit" (click)="getListaMensajes()" />
+    <div class="col-md-4 offset-md-4">
+        <p>tiene un mensaje que es {{this.municipio}}</p>
+    </div>
+
+
+    <br>
+    <br>
+    <br><br>
+
+</div>

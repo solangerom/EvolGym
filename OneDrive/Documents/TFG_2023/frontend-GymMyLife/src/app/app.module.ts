@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AlimentacionComponent } from './components/alimentacion/alimentacion.component';
+import { EventosComponent } from './components/eventos/eventos.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 //import { ProductoComponent } from './components/producto/producto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -50,6 +51,7 @@ import { ScrolltopComponent } from './components/scrolltop/scrolltop.component';
     PieChartComponent,
     ScrolltopComponent,
     AlimentacionComponent,
+    EventosComponent,
     CarritoComponent,
     //ProductoComponent,
   ],

@@ -7,6 +7,6 @@ export const endpoints = {
   profile: `${environment.apiNode}/profile`,
   municipality: `${environment.apiNode}/municipality`,
   community: `${environment.apiNode}/community`,
-
   admin: `${environment.apiNode}/admin`,
+  message: `${environment.apiNode}/message`,
 };
